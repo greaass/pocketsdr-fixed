@@ -1,0 +1,352 @@
+diff --git a/lib/RTKLIB/src/ephemeris.c b/lib/RTKLIB/src/ephemeris.c
+index 6eda144..73aff78 100644
+--- a/lib/RTKLIB/src/ephemeris.c
++++ b/lib/RTKLIB/src/ephemeris.c
+@@ -274,7 +274,7 @@ extern void eph2pos(gtime_t time, const eph_t *eph, double *rs, double *dts,
+                     double *var)
+ {
+     double tk,M,E,Ek,sinE,cosE,u,r,i,O,sin2u,cos2u,x,y,sinO,cosO,cosi,mu,omge;
+-    double xg,yg,zg,sino,coso;
++    double xg,yg,zg,sino,coso,axis,delta;
+     int n,sys,prn;
+     
+     trace(4,"eph2pos : time=%s sat=%2d\n",time_str(time,3),eph->sat);
+@@ -290,7 +290,13 @@ extern void eph2pos(gtime_t time, const eph_t *eph, double *rs, double *dts,
+         case SYS_CMP: mu=MU_CMP; omge=OMGE_CMP; break;
+         default:      mu=MU_GPS; omge=OMGE;     break;
+     }
+-    M=eph->M0+(sqrt(mu/(eph->A*eph->A*eph->A))+eph->deln)*tk;
++    axis=eph->A; delta=eph->deln;
++    /* 现代电文的径向项随半长轴变化，平近点角另含角速度变化率。 */
++    if (IS_MODERN_EPH(eph)) {
++        axis+=eph->Adot*tk; delta+=0.5*eph->ndot*tk;
++    }
++    if (axis<=0.0) return;
++    M=eph->M0+(sqrt(mu/(eph->A*eph->A*eph->A))+delta)*tk;
+     
+     for (n=0,E=M,Ek=0.0;fabs(E-Ek)>RTOL_KEPLER&&n<MAX_ITER_KEPLER;n++) {
+         Ek=E; E-=(E-eph->e*sin(E)-M)/(1.0-eph->e*cos(E));
+@@ -304,7 +310,7 @@ extern void eph2pos(gtime_t time, const eph_t *eph, double *rs, double *dts,
+     trace(4,"kepler: sat=%2d e=%8.5f n=%2d del=%10.3e\n",eph->sat,eph->e,n,E-Ek);
+     
+     u=atan2(sqrt(1.0-eph->e*eph->e)*sinE,cosE-eph->e)+eph->omg;
+-    r=eph->A*(1.0-eph->e*cosE);
++    r=axis*(1.0-eph->e*cosE);
+     i=eph->i0+eph->idot*tk;
+     sin2u=sin(2.0*u); cos2u=cos(2.0*u);
+     u+=eph->cus*sin2u+eph->cuc*cos2u;
+@@ -338,7 +344,8 @@ extern void eph2pos(gtime_t time, const eph_t *eph, double *rs, double *dts,
+     *dts-=2.0*sqrt(mu*eph->A)*eph->e*sinE/SQR(CLIGHT);
+     
+     /* position and clock error variance */
+-    *var=var_uraeph(sys,eph->sva);
++    /* ICD 尚未公开 SISAI 数值映射，现代星历先采用 10 米保守标准差。 */
++    *var=(sys==SYS_CMP&&IS_MODERN_EPH(eph))?100.0:var_uraeph(sys,eph->sva);
+ }
+ /* glonass orbit differential equations --------------------------------------*/
+ static void deq(const double *x, double *xdot, const double *acc)
+@@ -495,6 +502,9 @@ static eph_t *seleph(gtime_t time, int sat, int iode, const nav_t *nav)
+     for (i=0;i<nav->n;i++) {
+         if (nav->eph[i].sat!=sat) continue;
+         if (iode>=0&&nav->eph[i].iode!=iode) continue;
++        if (IS_MODERN_EPH(nav->eph+i)&&
++            (fabs(timediff(time,nav->eph[i].toc))>(sys==SYS_GPS?5400.0:7200.0)||
++             fabs(timediff(time,nav->eph[i].toe))>(sys==SYS_GPS?5400.0:7200.0))) continue;
+         if (sys==SYS_GAL) {
+             sel=getseleph(SYS_GAL);
+             if (sel==0&&!(nav->eph[i].code&(1<<9))) continue; /* I/NAV */
+diff --git a/lib/RTKLIB/src/pntpos.c b/lib/RTKLIB/src/pntpos.c
+index 430df13..7d8d862 100644
+--- a/lib/RTKLIB/src/pntpos.c
++++ b/lib/RTKLIB/src/pntpos.c
+@@ -95,6 +95,10 @@ static double prange(const obsd_t *obs, const nav_t *nav, const prcopt_t *opt,
+     
+     sat=obs->sat;
+     sys=satsys(sat,NULL);
++    if ((sys==SYS_CMP||sys==SYS_GPS)&&opt->ionoopt!=IONOOPT_IFLC) {
++        *var=SQR(ERR_CBIAS);
++        return (sys==SYS_CMP?pnt_bds_range(obs,nav,&P1):pnt_gps_range(obs,nav,&P1))?P1:0.0;
++    }
+     P1=obs->P[0];
+     P2=obs->P[1];
+     *var=0.0;
+@@ -186,6 +190,12 @@ extern int ionocorr(gtime_t time, const nav_t *nav, int sat, const double *pos,
+           time_str(time,3),ionoopt,sat,pos[0]*R2D,pos[1]*R2D,azel[0]*R2D,
+           azel[1]*R2D);
+     
++    /* 北斗现代电文的 BDGIM 已解出时按 L1 等效延迟返回，由调用者按真实频率缩放。 */
++    if (satsys(sat,NULL)==SYS_CMP&&ionoopt==IONOOPT_BRDC&&
++        nav->bdgim_time.time&&fabs(timediff(time,nav->bdgim_time))<=7200.0) {
++        *ion=bdgim_delay(time,nav->ion_bdgim,pos,azel);
++        *var=SQR(*ion*ERR_BRDCI); return 1;
++    }
+     /* GPS broadcast ionosphere model */
+     if (ionoopt==IONOOPT_BRDC) {
+         *ion=ionmodel(time,nav->ion_gps,pos,azel);
+@@ -297,7 +307,7 @@ static int rescode(int iter, const obsd_t *obs, int n, const double *rs,
+             }
+             if ((freq=sat2freq(sat,obs[i].code[0],nav))==0.0) continue;
+             dion*=SQR(FREQ1/freq);
+-            vion*=SQR(FREQ1/freq);
++            vion*=SQR(SQR(FREQ1/freq));
+             
+             /* tropospheric correction */
+             if (!tropcorr(time,nav,pos,azel+i*2,opt->tropopt,&dtrp,&vtrp)) {
+@@ -620,6 +630,17 @@ extern int pntpos(const obsd_t *obs, int n, const nav_t *nav,
+     prcopt_t opt_=*opt;
+     double *rs,*dts,*var,*azel_,*resp;
+     int i,stat,vsat[MAXOBS]={0},svh[MAXOBS];
++    obsd_t selected[MAXOBS];
++    nav_t *selected_nav=NULL;
++    sol->stat=SOLQ_NONE;
++    if (n<=0||n>MAXOBS) { strcpy(msg,"invalid observation count"); return 0; }
++    if (opt->ionoopt!=IONOOPT_IFLC) {
++        pnt_select_obs(selected,obs,n); obs=selected;
++        if (!pnt_bds_nav(obs,n,nav,&selected_nav)) {
++            strcpy(msg,"navigation allocation failed"); return 0;
++        }
++        if (selected_nav) nav=selected_nav;
++    }
+     
+     trace(3,"pntpos  : tobs=%s n=%d\n",time_str(obs[0].time,3),n);
+     
+@@ -673,5 +694,6 @@ extern int pntpos(const obsd_t *obs, int n, const nav_t *nav,
+         }
+     }
+     free(rs); free(dts); free(var); free(azel_); free(resp);
++    if (selected_nav) { free(selected_nav->eph); free(selected_nav); }
+     return stat;
+ }
+diff --git a/lib/RTKLIB/src/rtkcmn.c b/lib/RTKLIB/src/rtkcmn.c
+index 11c9d8a..be79119 100644
+--- a/lib/RTKLIB/src/rtkcmn.c
++++ b/lib/RTKLIB/src/rtkcmn.c
+@@ -2958,6 +2958,8 @@ extern int savenav(const char *file, const nav_t *nav)
+     
+     for (i=0;i<MAXSAT;i++) {
+         if (nav->eph[i].ttr.time==0) continue;
++        /* 旧缓存格式缺少轨道变化率及完整群延迟，禁止保存不完整现代星历。 */
++        if (IS_MODERN_EPH(nav->eph+i)) continue;
+         satno2id(nav->eph[i].sat,id);
+         fprintf(fp,"%s,%d,%d,%d,%d,%d,%d,%d,%.14E,%.14E,%.14E,%.14E,%.14E,%.14E,"
+                    "%.14E,%.14E,%.14E,%.14E,%.14E,%.14E,%.14E,%.14E,%.14E,%.14E,"
+diff --git a/lib/RTKLIB/src/rtklib.h b/lib/RTKLIB/src/rtklib.h
+index 573598a..d5d8d9b 100644
+--- a/lib/RTKLIB/src/rtklib.h
++++ b/lib/RTKLIB/src/rtklib.h
+@@ -638,6 +638,7 @@ typedef struct {        /* GPS/QZS/GAL broadcast ephemeris type */
+                         /* GAL:tgd[0]=BGD_E1E5a,tgd[1]=BGD_E1E5b */
+                         /* CMP:tgd[0]=TGD_B1I ,tgd[1]=TGD_B2I/B2b,tgd[2]=TGD_B1Cp */
+                         /*     tgd[3]=TGD_B2ap,tgd[4]=ISC_B1Cd   ,tgd[5]=ISC_B2ad */
++    /* GPS CNAV: tgd[1..4] 为 L1CA/L2C/L5I/L5Q ISC；CNAV-2: tgd[1..2] 为 L1CP/L1CD ISC。 */
+     double Adot,ndot;   /* Adot,ndot for CNAV */
+ } eph_t;
+ 
+@@ -847,6 +848,8 @@ typedef struct {        /* navigation data type */
+     sbsion_t sbsion[MAXBAND+1]; /* SBAS ionosphere corrections */
+     dgps_t dgps[MAXSAT]; /* DGPS corrections */
+     ssr_t ssr[MAXSAT];  /* SSR corrections */
++    double ion_bdgim[9]; /* 本接收机会话解出的北斗全球电离层参数。 */
++    gtime_t bdgim_time; /* BDGIM 参数的信号时间，禁止按电脑日期判龄。 */
+ } nav_t;
+ 
+ typedef struct {        /* station parameter type */
+@@ -1732,6 +1735,25 @@ EXPORT int lambda_search(int n, int m, const double *a, const double *Q,
+                          double *F, double *s);
+ 
+ /* standard positioning ------------------------------------------------------*/
++#define EPH_BDS_BCNAV3 256 /* B-CNAV3 来源标记，与 D1/D2 和观测码区分。 */
++#define EPH_BDS_BCNAV1 257
++#define EPH_BDS_BCNAV2 258
++#define EPH_GPS_CNAV   259
++#define EPH_GPS_CNAV2  260
++/* 星历来源值与 Galileo 标志位局部重合，必须同时判断卫星系统。 */
++#define IS_MODERN_EPH(e) (((satsys((e)->sat,NULL)==SYS_CMP)&&((e)->code>=256&&(e)->code<=258))||((satsys((e)->sat,NULL)==SYS_GPS)&&((e)->code==259||(e)->code==260)))
++extern int decode_gps_cnav(const uint8_t *, const uint8_t *, const uint8_t *, int, eph_t *, double *);
++extern int decode_gps_cnav2(const uint8_t *, int, eph_t *, double *);
++extern int decode_bds_bcnav1(const uint8_t *, int, eph_t *, double *);
++extern int decode_bds_bcnav2(const uint8_t *, const uint8_t *, const uint8_t *, int, eph_t *, double *);
++extern int pnt_gps_range(const obsd_t *, const nav_t *, double *);
++extern int decode_bds_bcnv3(const uint8_t *, const uint8_t *, int, eph_t *);
++extern void decode_bds_bdgim(const uint8_t *, double *);
++extern double bdgim_delay(gtime_t, const double *, const double *, const double *);
++extern int pnt_obs_slot(const obsd_t *);
++extern void pnt_select_obs(obsd_t *, const obsd_t *, int);
++extern int pnt_bds_nav(const obsd_t *, int, const nav_t *, nav_t **);
++extern int pnt_bds_range(const obsd_t *, const nav_t *, double *);
+ EXPORT int pntpos(const obsd_t *obs, int n, const nav_t *nav,
+                   const prcopt_t *opt, sol_t *sol, double *azel,
+                   ssat_t *ssat, char *msg);
+diff --git a/lib/build/librtk.mk b/lib/build/librtk.mk
+index 912cba7..655ecd4 100644
+--- a/lib/build/librtk.mk
++++ b/lib/build/librtk.mk
+@@ -29,7 +29,7 @@ CFLAGS = -O3 $(INCLUDE) $(OPTIONS) $(WARNOPTS) -fPIC -g
+ OBJ = rtkcmn.o tides.o rtkpos.o geoid.o solution.o lambda.o sbas.o \
+       stream.o rcvraw.o rtcm.o rtcm2.o rtcm3.o rtcm3e.o preceph.o options.o \
+       pntpos.o ppp.o ppp_ar.o ephemeris.o rinex.o ionex.o convrnx.o \
+-      streamsvr.o binex.o ublox.o novatel.o septentrio.o rtklib_wrap.o
++      streamsvr.o binex.o ublox.o novatel.o septentrio.o rtklib_wrap.o bcnv3.o bdgim.o pnt_signal.o modern_nav.o cnav.o bcnav.o
+ 
+ TARGET = librtk.so librtk.a
+ 
+@@ -41,6 +41,14 @@ librtk.so : $(OBJ)
+ librtk.a  : $(OBJ)
+ 	$(AR) r $@ $(OBJ)
+ 
++modern_nav.o cnav.o bcnav.o : %.o : $(SRC)/%.c $(SRC)/modern_nav.h $(SRC)/rtklib.h
++	$(CC) -c $(CFLAGS) $<
++bcnv3.o : $(SRC)/bcnv3.c $(SRC)/rtklib.h
++	$(CC) -c $(CFLAGS) $<
++bdgim.o : $(SRC)/bdgim.c $(SRC)/bdgim_coeff.h $(SRC)/rtklib.h
++	$(CC) -c $(CFLAGS) $<
++pnt_signal.o : $(SRC)/pnt_signal.c $(SRC)/rtklib.h
++	$(CC) -c $(CFLAGS) $<
+ rtkcmn.o   : $(SRC)/rtkcmn.c
+ 	$(CC) -c $(CFLAGS) $<
+ rtkpos.o   : $(SRC)/rtkpos.c
+diff --git a/lib/build/libsdr.mk b/lib/build/libsdr.mk
+index 39f4d08..94089ae 100644
+--- a/lib/build/libsdr.mk
++++ b/lib/build/libsdr.mk
+@@ -79,16 +79,20 @@ CFLAGS = -O3 $(INCLUDE) $(OPTIONS) -Wall -fPIC -g
+ 
+ OBJ = sdr_cmn.o sdr_func.o sdr_code.o sdr_code_gal.o sdr_ch.o \
+       sdr_nav.o sdr_pvt.o sdr_rcv.o sdr_fec.o sdr_ldpc.o sdr_nb_ldpc.o \
+-      sdr_usb.o sdr_dev.o sdr_conf.o sdr_sdev.o sdr_array.o sdr_web.o
++      sdr_bcnv3.o sdr_modern.o sdr_usb.o sdr_dev.o sdr_conf.o sdr_sdev.o sdr_array.o sdr_web.o
+ 
+ TARGET = libsdr.so libsdr.a
+ 
+ all : $(TARGET)
+ 
+-libsdr.so: $(OBJ)
++libsdr.so: $(OBJ) $(LIBS)
+ 	$(LD) -shared -o $@ $(OBJ) $(LDLIBS)
+ libsdr.a: $(OBJ)
+ 	$(AR) r $@ $(OBJ)
++sdr_modern.o : $(SRC)/sdr_modern.c $(SRC)/pocket_sdr.h
++	$(CC) -c $(CFLAGS) $<
++sdr_bcnv3.o : $(SRC)/sdr_bcnv3.c $(SRC)/pocket_sdr.h
++	$(CC) -c $(CFLAGS) $<
+ sdr_cmn.o : $(SRC)/sdr_cmn.c
+ 	$(CC) -c $(CFLAGS) $<
+ sdr_func.o : $(SRC)/sdr_func.c
+diff --git a/python/sdr_opt.py b/python/sdr_opt.py
+index 85cb80b..f834320 100644
+--- a/python/sdr_opt.py
++++ b/python/sdr_opt.py
+@@ -381,7 +381,7 @@ def sys_opt_new(opt_p=None):
+         opt.thres_pli.set('0.25')
+         opt.lost_th.set('4')
+         opt.bump_jump.set('OFF')
+-        opt.max_acq.set('4.0')
++        opt.max_acq.set('20.0')
+     return opt
+ 
+ # set system options to default values -----------------------------------------
+diff --git a/src/pocket_sdr.h b/src/pocket_sdr.h
+index d1c8e02..2196444 100644
+--- a/src/pocket_sdr.h
++++ b/src/pocket_sdr.h
+@@ -51,7 +51,7 @@ extern "C" {
+ 
+ // constants and macros ------------------------------------------------------
+ #define SDR_LIB_NAME   "Pocket SDR" // library name
+-#define SDR_LIB_VER    "0.21"   // library version
++#define SDR_LIB_VER    "0.21-fixed"   // library version
+ #define SDR_MAX_RFCH   8        // max number of RF channels
+ #define SDR_MAX_SDEV   8        // max number of SoapySDR devices
+ #define SDR_MAX_ARCH   8        // max number of array channels
+@@ -601,6 +601,8 @@ int sdr_decode_NB_LDPC(const uint8_t H_idx[][4], const uint8_t H_ele[][4],
+ sdr_pvt_t *sdr_pvt_new(sdr_rcv_t *rcv);
+ void sdr_pvt_free(sdr_pvt_t *pvt);
+ void sdr_pvt_udobs(sdr_pvt_t *pvt, int64_t ix, sdr_ch_t *ch);
++int sdr_modern_update(sdr_ch_t *, nav_t *, eph_t *);
++int sdr_bcnv3_update(sdr_ch_t *, nav_t *, eph_t *);
+ void sdr_pvt_udnav(sdr_pvt_t *pvt, sdr_ch_t *ch);
+ void sdr_pvt_udsol(sdr_pvt_t *pvt, int64_t ix);
+ void sdr_pvt_solstr(sdr_pvt_t *pvt, char *buff, int size);
+diff --git a/src/sdr_pvt.c b/src/sdr_pvt.c
+index 452dd38..6b019ca 100644
+--- a/src/sdr_pvt.c
++++ b/src/sdr_pvt.c
+@@ -693,8 +693,8 @@ sdr_pvt_t *sdr_pvt_new(sdr_rcv_t *rcv)
+     pvt->obs->data = (obsd_t *)sdr_malloc(sizeof(obsd_t) * MAX_NOBS);
+     pvt->obs->nmax = MAX_NOBS;
+     pvt->nav = (nav_t *)sdr_malloc(sizeof(nav_t));
+-    pvt->nav->eph = (eph_t *)sdr_malloc(sizeof(eph_t) * MAXSAT * 4);
+-    pvt->nav->n = pvt->nav->nmax = MAXSAT * 4;
++    pvt->nav->eph = (eph_t *)sdr_malloc(sizeof(eph_t) * MAXSAT * 6);
++    pvt->nav->n = pvt->nav->nmax = MAXSAT * 6;
+     pvt->nav->geph = (geph_t *)sdr_malloc(sizeof(geph_t) * MAXPRNGLO);
+     pvt->nav->ng = pvt->nav->ngmax = MAXPRNGLO;
+     pvt->nav->seph = (seph_t *)sdr_malloc(sizeof(seph_t) * NSATSBS * 2);
+@@ -708,7 +708,9 @@ sdr_pvt_t *sdr_pvt_new(sdr_rcv_t *rcv)
+     set_obs_idx(rcv);
+     pvt->rcv = rcv;
+     sdr_mutex_init(&pvt->mtx);
+-    load_navdata(FILE_NAV, pvt->nav, pvt); // load nav + almanac + last fix
++    if (!strstr(rcv->opt,"-NAV_COLD")) {
++        load_navdata(FILE_NAV, pvt->nav, pvt);
++    }
+     return pvt;
+ }
+ 
+@@ -1077,6 +1079,34 @@ void sdr_pvt_udnav(sdr_pvt_t *pvt, sdr_ch_t *ch)
+                 out_log_alm_sys(ch->time, ch->sig, pvt->nav, SYS_CMP);
+             }
+         }
++    } else if (!strcmp(ch->sig,"L2CM")||!strcmp(ch->sig,"L5I")||
++               !strcmp(ch->sig,"L1CD")||!strcmp(ch->sig,"B1CD")||
++               !strcmp(ch->sig,"B2AD")) {
++        eph_t eph;
++        if (sdr_modern_update(ch,pvt->nav,&eph)) {
++            int slot=(eph.code==EPH_GPS_CNAV2||eph.code==EPH_BDS_BCNAV2)?4:3;
++            pvt->nav->eph[slot*MAXSAT+sat-1]=eph;
++            if (!pvt->nav->eph[sat-1].sat||IS_MODERN_EPH(pvt->nav->eph+sat-1)) {
++                pvt->nav->eph[sat-1]=eph;
++            }
++            out_log_eph(ch->time,ch->sat,ch->sig,&eph);
++            sdr_log(3,"$LOG,%.3f,%s,%s,MODERN CED,%d,%d,%.0f,%d,%d,%d,%.12g,%.12g,%.12g,%.12g,%.12g,%.12g,%.12g,%.12g",
++                ch->time,ch->sat,ch->sig,eph.code,eph.week,eph.toes,eph.iode,eph.iodc,eph.svh,eph.Adot,eph.ndot,
++                eph.tgd[0],eph.tgd[1],eph.tgd[2],eph.tgd[3],eph.tgd[4],eph.tgd[5]);
++            pvt->count[2]++;
++        }
++    } else if (!strcmp(ch->sig,"B2BI")) {
++        eph_t eph;
++        if (sdr_bcnv3_update(ch,pvt->nav,&eph)) {
++            pvt->nav->eph[2*MAXSAT+sat-1]=eph;
++            if (!pvt->nav->eph[sat-1].sat||pvt->nav->eph[sat-1].code==EPH_BDS_BCNAV3) {
++                pvt->nav->eph[sat-1]=eph;
++            }
++            out_log_eph(ch->time,ch->sat,ch->sig,&eph);
++            sdr_log(3,"$LOG,%.3f,%s,B2BI,BCNAV3 CED,%d,%.0f,%.0f,%.12g,%.12g",
++                ch->time,ch->sat,eph.week,eph.toes,time2bdt(gpst2bdt(eph.toc),NULL),eph.Adot,eph.ndot);
++            pvt->count[2]++;
++        }
+     } else if (!strcmp(ch->sig, "I5S") || !strcmp(ch->sig, "ISS")) { // NavIC NAV
+         if (ch->nav->type == 2 &&
+             decode_irn_nav(data, pvt->nav->eph + sat - 1, NULL, NULL)) {
+@@ -1138,7 +1168,7 @@ static void update_sol(sdr_pvt_t *pvt)
+     // delete duplicated L1 obs data
+     for (int i = 0; i < pvt->obs->n && nobs < MAXSAT; i++) {
+         int sat = pvt->obs->data[i].sat;
+-        if (pvt->obs->data[i].P[0] == 0.0 || mask[sat-1]) continue;
++        if (pnt_obs_slot(pvt->obs->data+i)<0 || mask[sat-1]) continue;
+         obs[nobs++] = pvt->obs->data[i];
+         mask[sat-1] = 1;
+     }
+diff --git a/src/sdr_rcv.c b/src/sdr_rcv.c
+index 46400a4..36099f0 100644
+--- a/src/sdr_rcv.c
++++ b/src/sdr_rcv.c
+@@ -49,7 +49,7 @@
+ #define FAST_DOP   500.0        // fast acquisition Doppler half-width (Hz)
+ #define MIN_LOCK   2.0          // min lock time for re-acquisition (s)
+ #define NUM_COL    106          // number of channel status columns
+-#define MAX_ACQ    4.0          // max code length for direct acquisition (ms)
++#define MAX_ACQ   20.0          // 覆盖 L2C 的 20 ms 码周期，支持现代信号冷启动。
+ #define MAX_BUFF_USE 90         // max buffer usage rate (%)
+ #define MAX_BAR    12           // C/N0 bar width
+ #define SAMPLES_STATS 100       // samples for stats

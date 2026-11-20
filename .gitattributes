@@ -12,3 +12,12 @@
 Makefile text eol=lf
 *.sh text eol=lf
 *.ps1 text eol=crlf
+
+# 按原字节保存接收机及依赖源码，便于核对实验副本。
+src/** -text
+python/** -text
+app/** -text
+conf/** -text
+test/** -text
+lib/** -text
+html/** -text

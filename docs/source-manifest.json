@@ -1,0 +1,1466 @@
+{
+  "upstream": "https://github.com/tomojitakasu/PocketSDR",
+  "upstream_commit": "eda83016229dbc1374f8db4be81dc52f0f07bc13",
+  "version": "0.21-fixed",
+  "export_date": "2026-11-20",
+  "files": [
+    {
+      "path": "app/convbin/convbin.c",
+      "bytes": 32663,
+      "sha256": "5476be528629f67ec60d82a0647fa334f14868fca63cd43f4e7eaad9015be5b3",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/convbin/makefile",
+      "bytes": 895,
+      "sha256": "52ec4fee600c1f3c4ff5fe865c8bf34712587866ba27b72006914c05189232a1",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/makefile",
+      "bytes": 794,
+      "sha256": "4732c0683c7f15dff018c56ca7793149a1581e509eef60c227e518e242a69c88",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_acq/makefile",
+      "bytes": 1449,
+      "sha256": "f0af94909ee1323ddbe5e4e25984998158f29ad6c59745d2d3a9e68eeb6b14f4",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_acq/pocket_acq.c",
+      "bytes": 10133,
+      "sha256": "a8752dd6de0b33310165f76abbc4cfbefe2fe789b8cba3718f8ed14d0ed1d9e9",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_calib/array.geom",
+      "bytes": 550,
+      "sha256": "e3af6b90d6d33850205ab46b778a45083a03e258f93ae8a913724e283af28ba9",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_calib/makefile",
+      "bytes": 1407,
+      "sha256": "2abf7623fc73d81f7504f1c721a7817cebe66df70e8c1981581ae77b6347d924",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_calib/pocket_calib.c",
+      "bytes": 6350,
+      "sha256": "2f4f6ebc10700e93840d1dedfb7420871b42d5b600391aed697694c620db3fdf",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_conf/makefile",
+      "bytes": 1594,
+      "sha256": "a4f452f596124f9720226fecc138acfb96945396c104eaa5d30ef1903548c6fb",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_conf/pocket_conf.c",
+      "bytes": 2114,
+      "sha256": "8e4455f67d8f5800bf6f7a489557763b9d4a10b924356391934e1916c1849316",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_dump/makefile",
+      "bytes": 1925,
+      "sha256": "0a8b0e6325f765c6f1fa2677a230a37b693dc556b7d5ad19e67d5413130349cf",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_dump/pocket_dump.c",
+      "bytes": 15549,
+      "sha256": "7641cc56b0202f36604843cf40b42c8970b37ec4582f9fb0cd78d0e1e7334f18",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_dump/pocket_dump.sh",
+      "bytes": 1358,
+      "sha256": "a2fccd8b1923ffdd4cab4981cc7555bbd0c540ca10befebfa69f707a34491644",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_scan/makefile",
+      "bytes": 738,
+      "sha256": "5de138afef114964fa41fdd0b27cd08515ac97654b019905b775dfaef2c05b58",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_scan/pocket_scan.c",
+      "bytes": 4506,
+      "sha256": "9a98a44c5f424c7d0b9fcab5e4106589ae5592c5b21ea2141b1b82f122e55d4f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_snap/makefile",
+      "bytes": 1473,
+      "sha256": "8e247bb44ef03c9fa9c38cd167fa0284ad3a61da779b61481122126a00c0df50",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_snap/pocket_snap.c",
+      "bytes": 19690,
+      "sha256": "41ce5c916d6af9d0ba1e47e199a263b94eaa388604c06749a6bf2fdbf9d2299a",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_trk/fftw_wisdom.c",
+      "bytes": 1381,
+      "sha256": "0a42a57288cc20f2003fbb89bfba482452c8b1dd452bb3016be5f1d9e97be67a",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_trk/makefile",
+      "bytes": 2001,
+      "sha256": "f9b9935ba0bb8220717c391391e63ad82493fc07a4ceb3a19adfb109dc845b7d",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_trk/pocket_trk.c",
+      "bytes": 15482,
+      "sha256": "9d8a8bbf010a5a8c3d46a41eb8b5faecf95114ead896d92836f48424b651dae4",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_trk/pocket_trk.sh",
+      "bytes": 1381,
+      "sha256": "c6ff11ab5d789512e8441fbaf8aac5ea4e2a23633630ad1a467cabcc35e9c868",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_trk/pocket_trk_default.conf",
+      "bytes": 1357,
+      "sha256": "ea2a190ad39a9efe5deacf48d6f08a61410f2c00b4e560d4945b4817ced8a216",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_web/makefile",
+      "bytes": 1825,
+      "sha256": "f55de3a1e29c53da2359def410a959d82387c69323795a4ebf192e8241e6b86e",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/pocket_web/pocket_web.c",
+      "bytes": 4853,
+      "sha256": "f56bc0d1de6bcde5fd385c0726a82d6863fd801b3436dbea4f39d6102823b25b",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/str2str/makefile",
+      "bytes": 940,
+      "sha256": "520eceda99dbab35632a17e04ac027d251cf84b3841ea5ff3a1c6d69aaa45df1",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "app/str2str/str2str.c",
+      "bytes": 15246,
+      "sha256": "316ffa8295d763f6de0008efd6b4ee0b85617cf9acdf78bd06f64f7eb2c65390",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_ALL_48MHz.conf",
+      "bytes": 7264,
+      "sha256": "99b1677a0b4f1cb5a3ae7647db7897f88c865a2c5a47e40089c038565cf7b4ad",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_B1IB2I_12MHz.conf",
+      "bytes": 3990,
+      "sha256": "843ead9509723107bc111bdff5eaeba0b46ec8b2b9e7f97117cf2bae7a3caa3b",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_B1IB3I_24MHz.conf",
+      "bytes": 3990,
+      "sha256": "676ee6c49136c635bf1e497792312ee2041913d52ab23b76c1ae82e27a332f9f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_E1E5b_24MHz.conf",
+      "bytes": 3990,
+      "sha256": "9fc72a088cece1bb326953f65125dde28472bbf68f4c32b4bc7d7a138184f93b",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_G1G2_12MHz.conf",
+      "bytes": 3990,
+      "sha256": "2e121a641408cb0c1dc0763803105b3c41eb945b5bfddd291e00238c103b8edf",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_G1G3_24MHz.conf",
+      "bytes": 3990,
+      "sha256": "8e15f77ccd4a31c153d416a2f387c45d4567a299d3eeca6507f15bb8da3384c4",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_G1OCG2OC_12MHz.conf",
+      "bytes": 3990,
+      "sha256": "56d22cae594ee117b5fbcaacc0382b5db716fedf13e5e1a5f284edad4b61f41f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_G1OCG3OC_24MHz.conf",
+      "bytes": 3990,
+      "sha256": "357e5128e812c1908c5747618158356fd6bc4495bae7478c572a4158b88b3180",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1B1G1L2G2L5E5bL6_16MHz.conf",
+      "bytes": 13868,
+      "sha256": "e4d64859ecc6139297334801fe6b8aa693c42298f78f682c9bfb6f04151b25f2",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1B1G1L2G2L5E5bL6_24MHz.conf",
+      "bytes": 13868,
+      "sha256": "c3cff1f6382f76de2152fd5ae9b8095a21250232b95e4a4cde7bf98ba1cb2976",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1G1L2G2L5E5bB3L6_16MHz.conf",
+      "bytes": 13868,
+      "sha256": "66c9be607dbbdb0515d96aa110531b88f9d42a38b38f234189321fbfaea05c7c",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1G1L2G2L5E5bB3L6_24MHz.conf",
+      "bytes": 13812,
+      "sha256": "f3a976d23cd8d56caba4f16c519001bd8b99c3f2ab5bd6e02ff1ae488607e439",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1G1L2G2_24MHz.conf",
+      "bytes": 7264,
+      "sha256": "dea15d56bc3f5b56f9727c8ccdb8533b70c8309d1a52921d5968fd5bd67d17b2",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1G1L5E5b_16MHz.conf",
+      "bytes": 7264,
+      "sha256": "f060b6750150159704627fbc91973115943c85e163036dcf28e3d0cf63b643ff",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1G1L5E5b_24MHz.conf",
+      "bytes": 7264,
+      "sha256": "46b4a7d20e5ce92b4c9dea65d6b1fcdfcc2acb7b9f83943e952b341528bed5d9",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1G1L5E6_24MHz.conf",
+      "bytes": 7264,
+      "sha256": "eb43d059c5476ee8015fbfd0f80ff788ab53ea1964190345a4024da32dd3c1b3",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1G1L5L6_16MHz.conf",
+      "bytes": 7264,
+      "sha256": "58130f1538723794e166fbf771f79efd5bf9629f9b233e44b24ed43fab063b56",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1L2L5E5b_24MHz.conf",
+      "bytes": 7264,
+      "sha256": "f22c3f9e509a8e57eb7b1c651be98da243efa6e6805e1d5ca4fbfa40750f8d40",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1L2L5L6_24MHz.conf",
+      "bytes": 7264,
+      "sha256": "6eca20e05f2a0cf7ed16b6eded222f43ec720037350dd3c06d4f0eae3cb8822a",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1L2_8MHz.conf",
+      "bytes": 3990,
+      "sha256": "d00fdd09cef8ba9de59b1269e1d52e212f135371af432b7a97445cb3ab2e202f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1L5_20MHz.conf",
+      "bytes": 3990,
+      "sha256": "7e70c1535601f50ef060408b817bbf2c1a627485f95af2d9303888f528bd52a7",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1L5_24MHz.conf",
+      "bytes": 3990,
+      "sha256": "153bd11cc208e53bc085ad0ac07ae049ed96ecc535873550027d7482fd27286b",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1L5_32MHz.conf",
+      "bytes": 3990,
+      "sha256": "b6c93768b4f6a833de65c511528430556b9bd5ad4e196338ba08659e4ca0711b",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1L5_40MHz.conf",
+      "bytes": 3990,
+      "sha256": "d2765d3a9e411d472e3a6901f5871f736a18efc7c70dcafdde6dbe8b8b6faee6",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1L6_12MHz.conf",
+      "bytes": 3990,
+      "sha256": "0c6a75d35d1e48c8398624bbb9a10bd8596498589497b670bf0d1c05f2aff543",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1L6_16MHz.conf",
+      "bytes": 3990,
+      "sha256": "18f69f6869a946f24713004337ec4bb50c4d69f134ca3dd7d28148884794e702",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1L6_24MHz.conf",
+      "bytes": 3990,
+      "sha256": "3f7b4cdbdeca5a831ba71c646514e3e7e439b5c8eea9a75c961a47d4d0fe7fb2",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1X8_12MHz.conf",
+      "bytes": 3164,
+      "sha256": "15f4a58d21c551a6172feb3b11785025d0484cc90bf2868a85a8c71c9dafa84d",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1X8_16MHz.conf",
+      "bytes": 3253,
+      "sha256": "f9754130159e78ba59cbd6576ae5b261e3e08dbe0f5781ed1585dce40f1c4a6f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1X8_24MHz.conf",
+      "bytes": 3261,
+      "sha256": "4e388f3ebc04ce58c666127c649c89908ce441be72c2324f69113990f4e7c033",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1_8CH_12MHz.conf",
+      "bytes": 14468,
+      "sha256": "852c46ed6655902ec6d5dcc043b20598c9517378429ffb4705155c1cc88588fc",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L1_8CH_16MHz.conf",
+      "bytes": 14468,
+      "sha256": "e81ec9af04df12ded2cf632792602b9e590eb1edf90d712b9f2f93869bb008fd",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_L5E5bB3L6_24MHz.conf",
+      "bytes": 7264,
+      "sha256": "6a001a8459fc93c7db996dd93e62a169455849d52e8c49c6de41f4fcaaa49032",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/pocket_default.conf",
+      "bytes": 8473,
+      "sha256": "1f1f93688bd5b6f9da4198788d102ce37119f8521661c3661a9e7599bcacdaa6",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "conf/spider_10MHz.conf",
+      "bytes": 8520,
+      "sha256": "5a7ac56ecc0ba10a1f6d8c884f63a5fc75c5def44ddf31eaf7d2754bb870371f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/css/style.css",
+      "bytes": 18037,
+      "sha256": "31eb353d33e752c22d2595ab38a8198b21cfe393bac6b81dfa23370db8ff60ce",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/img/favicon.svg",
+      "bytes": 437,
+      "sha256": "f0ed818d00f20e9f8a0b8398756cc2fc225d584dde0de85aaf8c8f94d410ec81",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/index.html",
+      "bytes": 1072,
+      "sha256": "2afd54512d8121d2b430aefcb3c77e41f9a8e91ea7f267cc5723853b603b2f77",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/main.js",
+      "bytes": 9181,
+      "sha256": "d208b0b1841d65ec026c77379a0712efcfe68a80b0528ff6c7f0f59f311c6d22",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/array.js",
+      "bytes": 5519,
+      "sha256": "88e04176ad31ca96206a5ad10bdb2c500ca097b1c80b9e892fe79db7f7139441",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/bbch.js",
+      "bytes": 4207,
+      "sha256": "3fc04ef40eae2c53c784cf63c0de2e7cc67504e7b860c56d1a624f8388903d16",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/corr.js",
+      "bytes": 11708,
+      "sha256": "8e292e8fa98a184e81f92472de8a83e5a9a3f3f96be42b628bce170adef00bf1",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/help.js",
+      "bytes": 4466,
+      "sha256": "8da80f4ecf486c1bdb52ea5e0e2b02992d4c257f68a48f50f07c777ed6e44d67",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/inp.js",
+      "bytes": 9343,
+      "sha256": "ad69f026d6399fa3529c300bb0d83bca6d5a10feacb966769ccffa76786c203d",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/log.js",
+      "bytes": 2833,
+      "sha256": "f4a93b305e2936a67fc10557a9e1f57871189a00696cafb2480d6f648f9142a7",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/opts.js",
+      "bytes": 6828,
+      "sha256": "cd014d706176404839fae9debf6e5bbffb14abe25a69c883e87791a7068e66cc",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/out.js",
+      "bytes": 5243,
+      "sha256": "3109de78a869c8ac8adf88bf8f3990b237697a6ab09ad27496cf53deaf51f86f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/rcv.js",
+      "bytes": 19313,
+      "sha256": "860424e81057e2079b6ab79c81503b9fab20956b2cc5978ffa271c2096b85331",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/rfch.js",
+      "bytes": 16290,
+      "sha256": "53720405cf8ccd0f737103791f341f86a14cbb26fe9ffa98b3ecdaf61133f61e",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/sats.js",
+      "bytes": 4405,
+      "sha256": "10210ccabb70b57514630e58a5088cb23e08f1d40fc659d66bba362c76797d63",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/sig.js",
+      "bytes": 11871,
+      "sha256": "36fffea62ec85ee989665c871b53ac1585dedc6a7db9106cde83e9bd7f1b124f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/pages/sol.js",
+      "bytes": 8715,
+      "sha256": "39867baf51c483241054268aef4c897574e815d716238e306757a1e9de57061c",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/plot.js",
+      "bytes": 13569,
+      "sha256": "112dd07369f67875f9be10abc719022fe885d2887d55622e6e5fd1f6af76a716",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "html/js/ws.js",
+      "bytes": 3897,
+      "sha256": "2eb009cdd8c6474daed115d143ad792b1c84b1da3cc72920f7da23cebb5bbfc0",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/readme.txt",
+      "bytes": 2038,
+      "sha256": "d53a2094ee24daaabba23b3c83ae6b3f5be9f0155e65c681b99c8aaf129af598",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/bcnav.c",
+      "bytes": 3087,
+      "sha256": "a608bef18d0a19e13bc8476f5dd152b13b9ad01c51d80d35700084b3416c926f",
+      "upstream_status": "added"
+    },
+    {
+      "path": "lib/RTKLIB/src/bcnv3.c",
+      "bytes": 3809,
+      "sha256": "fe8f1ab7ba3f6bbf2eb0feb3e4584423f45ed218cd545cb2cd6c07566f37c329",
+      "upstream_status": "added"
+    },
+    {
+      "path": "lib/RTKLIB/src/bdgim.c",
+      "bytes": 3031,
+      "sha256": "34821397aee91f4dd7e3a60be5f0c5245c3f144ebcd885698042b9d8848f1b04",
+      "upstream_status": "added"
+    },
+    {
+      "path": "lib/RTKLIB/src/bdgim_coeff.h",
+      "bytes": 2286,
+      "sha256": "c8c6f592a436e6730564b28b7d1d413f199937902d2b8da8238ad331dee3c198",
+      "upstream_status": "added"
+    },
+    {
+      "path": "lib/RTKLIB/src/cnav.c",
+      "bytes": 3474,
+      "sha256": "d1a282e79ab35c198e479c1499c9dac5e8568eab1acb80767797e3d6c26683f6",
+      "upstream_status": "added"
+    },
+    {
+      "path": "lib/RTKLIB/src/convrnx.c",
+      "bytes": 52702,
+      "sha256": "0fe267f6c96817ca7c0b87f01f55df826d55b7e1d31a42bb30092ab75c5d4ec1",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/ephemeris.c",
+      "bytes": 37801,
+      "sha256": "98b56330da2d773c6c24b873426a1b49a34232eaf88fa7842cf70c8997e7edfb",
+      "upstream_status": "modified"
+    },
+    {
+      "path": "lib/RTKLIB/src/geoid.c",
+      "bytes": 613691,
+      "sha256": "eff04b27b87a6cc5f8f5c96472af28c2ecd1aa236fcf5545b52f1289e458c4c0",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/ionex.c",
+      "bytes": 16967,
+      "sha256": "8a46b8ba92883b0366c4eed39fdc00a331f0fb32c467e71e85f3df87421f8748",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/lambda.c",
+      "bytes": 8765,
+      "sha256": "dc3d9dad7d1c5b78530731020208e64ad9b5ba5c3bfe2aa4c4326d7e4e6ff2db",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/modern_nav.c",
+      "bytes": 3581,
+      "sha256": "3d1ffabdd1a93069892b160ae0869c9aad9a004301e2815a61f0c155e8382638",
+      "upstream_status": "added"
+    },
+    {
+      "path": "lib/RTKLIB/src/modern_nav.h",
+      "bytes": 639,
+      "sha256": "699fe6cff564575c5efc0ab2dbfcd664f76b270238ad86c41687e294e0e4970d",
+      "upstream_status": "added"
+    },
+    {
+      "path": "lib/RTKLIB/src/options.c",
+      "bytes": 22882,
+      "sha256": "d7b1cb3384303acc17f23a0fd79b25a6ecb9ce8050f07dad870cf0d935d96a47",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/pnt_signal.c",
+      "bytes": 5075,
+      "sha256": "f213c31054b1fdf144689a6be03ec213de0d1c2e81a9c877372cf1eef031412b",
+      "upstream_status": "added"
+    },
+    {
+      "path": "lib/RTKLIB/src/pntpos.c",
+      "bytes": 26960,
+      "sha256": "717f868ddbdd0cc6a0ba7cab222203be3c10934b2e3032cbaaa7fa61a055545d",
+      "upstream_status": "modified"
+    },
+    {
+      "path": "lib/RTKLIB/src/ppp.c",
+      "bytes": 43676,
+      "sha256": "f261b67873ad3306242bb0e08c49cac523176bad5f162844ca210251e6c8472a",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/ppp_ar.c",
+      "bytes": 790,
+      "sha256": "1ba207511a3a47d78e7cdf7fc1e92ccf6c874fb089891db49cc472586c9644f2",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/preceph.c",
+      "bytes": 25762,
+      "sha256": "f0a305c2c71d55b2d1f7d74063a8ac0e10b22508a0df9c0dbd92bdc3a86e12f0",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/rcv/binex.c",
+      "bytes": 45314,
+      "sha256": "f1f3eef12ef3747ac3c717a02f3ecd0d24469dd5a4d9c61ed4fc548510b100f6",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/rcv/novatel.c",
+      "bytes": 55465,
+      "sha256": "72f99d5640258bed784dfe62b76e792db1595bff902d52b2cff1db95a4452fee",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/rcv/septentrio.c",
+      "bytes": 34105,
+      "sha256": "e5ef79ff93f6f785ed20670c732a981c4635410e1316e0608a342430d93031d0",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/rcv/ublox.c",
+      "bytes": 56246,
+      "sha256": "f5ceacd0167af073255c3aea82e9e5007d7b2d8fd0d730a2e752cb55640d20bb",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/rcvraw.c",
+      "bytes": 75684,
+      "sha256": "7c3f06f2ad563ecb0a703c8d1ec37911abfb27bc4b8bb80e8932eacd0c7cc74f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/rinex.c",
+      "bytes": 110713,
+      "sha256": "eb4b166a3f888d181610e580a7264b0ad1231569f98a1469b8c2fde152ab8a9e",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/rtcm.c",
+      "bytes": 17610,
+      "sha256": "c5b1637c969b7a70b0a8acf8434fa8d736761ba05d8a64df1ce33e2a8e1bff9a",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/rtcm2.c",
+      "bytes": 15256,
+      "sha256": "5678abc2bae7a5494bac288fdd81732b55c1d72799b08e309a9048f5601cf0f6",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/rtcm3.c",
+      "bytes": 110160,
+      "sha256": "46034c3548726f162fc1d1f73dc99cf92aa089622ea3f6533903a19baa284cfe",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/rtcm3e.c",
+      "bytes": 111620,
+      "sha256": "c7da932f06d6d75390c2895bf7657d5710ee24bc96c7306de88b05359c6c3dff",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/rtkcmn.c",
+      "bytes": 165894,
+      "sha256": "8dc55dce255e58a174d705cb22fcc3ee933d664802e0a2a0c600442836d9a4b5",
+      "upstream_status": "modified"
+    },
+    {
+      "path": "lib/RTKLIB/src/rtklib.h",
+      "bytes": 98399,
+      "sha256": "be20b310b94a3dc75fb6a82d6701b8e39a5b93850ac3a91dab8d85506a888a8e",
+      "upstream_status": "modified"
+    },
+    {
+      "path": "lib/RTKLIB/src/rtkpos.c",
+      "bytes": 70976,
+      "sha256": "987887cc270e2a7d85f26dad94d64cd3432656f61449e83b49226e213ef39f35",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/sbas.c",
+      "bytes": 36638,
+      "sha256": "c82238e63e5ab84aaa1ecf45ccf67cebf84a41cc82059c943de38593a72e3259",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/solution.c",
+      "bytes": 64044,
+      "sha256": "8c09b1c466672a36dc4c60f5093ae883dc4a04efdaedcc959826929cc21dfb0c",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/stream.c",
+      "bytes": 115669,
+      "sha256": "fb1e6031c712354be555e4a37b7adfb70336335fe4d5d602a44cffe4b7565f87",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/streamsvr.c",
+      "bytes": 28515,
+      "sha256": "34e1650cf7d8a1f0cf04016427cf2de7b256e859afc3e5f8b6393a258339e4f4",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/RTKLIB/src/tides.c",
+      "bytes": 10955,
+      "sha256": "dc051cb8ec94c1e77559ab248249e960dc906fc6427fb464b08f5c6a6da67211",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/build/libpocketfft.mk",
+      "bytes": 873,
+      "sha256": "1a12bb7d54862b7516da8f8eaccc57c4c5f9caddf57ec381733d8c6176e637f2",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/build/librtk.mk",
+      "bytes": 3968,
+      "sha256": "b3219678c02de5e65e1c2e66e11cf99592d8605e9dc7660db0f1af692112a53f",
+      "upstream_status": "modified"
+    },
+    {
+      "path": "lib/build/libsdr.mk",
+      "bytes": 4135,
+      "sha256": "6ea1306028d9b9b2f6e2eda682579933e10dab69709bb8aace89d932a86b79b9",
+      "upstream_status": "modified"
+    },
+    {
+      "path": "lib/build/makefile",
+      "bytes": 602,
+      "sha256": "fcc07f7b6a5567173415dec38a2f6ed53deba7bfdc5f85e31b9de373d229e3ac",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/build/rtklib_wrap.c",
+      "bytes": 3606,
+      "sha256": "d06120bad9bda9a36ff70a53699ccdcf50d869461cf7427d170a2371b54b654e",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/pocketfft/LICENSE.md",
+      "bytes": 1523,
+      "sha256": "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/pocketfft/README.md",
+      "bytes": 11087,
+      "sha256": "ffbc7bc40a9e98176a82b5d39aea39b9c256c35895499df5eeee1fb41e4b196a",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/pocketfft/pocketfft.h",
+      "bytes": 884,
+      "sha256": "3113374c7f5e64edd780c31f83eae406c257bbf674f9c695d1061dcb2416e8cd",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/pocketfft/pocketfft_demo.cc",
+      "bytes": 2390,
+      "sha256": "40579fac2e4afe9d07bcd72854cc1b7d615666da6e03193212c920fd8a89b928",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/pocketfft/pocketfft_hdronly.h",
+      "bytes": 120572,
+      "sha256": "d62b5359e454d94b32f94e9377a348ebe5172ef61f13e5ba6a74d6a97f9736f3",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "lib/pocketfft/pocketfft_wrap.cpp",
+      "bytes": 2208,
+      "sha256": "edc7b1c90735f64671d3eb4e4677c141f1743652609808d713c9eb6650330772",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/fftw_wisdom.py",
+      "bytes": 1614,
+      "sha256": "ebf155a978be9dd23e5d75052b687518b2d32f98192f0529d436e85c5f456f41",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/pocket_acq.py",
+      "bytes": 19032,
+      "sha256": "6e70836de1e9c6242c0213919de87dc7f6a90b6e0515aeb5c72c701cbe80e9bc",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/pocket_array.py",
+      "bytes": 26199,
+      "sha256": "c4792f4701817158ed6de828576456662f451e588f83d56eae05bd87afe089bc",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/pocket_plot.py",
+      "bytes": 32843,
+      "sha256": "a6e1e9aa67ec56bb96dcc26f6f4bf21a8fcdf81d7f071a89044d5826b5bb18f8",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/pocket_psd.py",
+      "bytes": 6163,
+      "sha256": "9d213b907ddb4de5abd4dfbafa643da30abdd681be27001a7e2d7b2ed9562bda",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/pocket_sdr.py",
+      "bytes": 107766,
+      "sha256": "87da6e0c476d85cd9f83c0a0e50709c0efc3af5b6852d58bfd12de0abd5df051",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/pocket_snap.py",
+      "bytes": 14157,
+      "sha256": "6abdf3d150056bbd77ef8e4072a39ea98ad262c6f4275a7e81a3fdb76dded762",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/pocket_trk.py",
+      "bytes": 12215,
+      "sha256": "77549b98f15b913857ce491d194747849695af46c2f555cc68a690cf29234eb0",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_array.py",
+      "bytes": 5105,
+      "sha256": "b7a8b5f28d57743ad995977687c0b974dd32f009db6d1f5ba6a36f05a29b7139",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_ch.py",
+      "bytes": 13472,
+      "sha256": "1f02c84ce88f39e338119cb9bf1ccc6630e9d0026588ccf2e6fcbebcfe8e0354",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_ch_plot.py",
+      "bytes": 12804,
+      "sha256": "50315dbca600c3e55a84ac7c426957a8247edd95efc9957fd6e337a39b40392f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_code.py",
+      "bytes": 79610,
+      "sha256": "d5d7e9afea616b60521af17a285fe6e6836cb0153155b95b58e6de08cef23661",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_code_gal.py",
+      "bytes": 253803,
+      "sha256": "4abdca5c95885fd91a83995e96d1852814b8cc66dde1bf8df98090a87d493209",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_fec.py",
+      "bytes": 6339,
+      "sha256": "57db8f79e99397f746b4a5e537ec26bc97f33a0591306a14eddcb6f465fcb698",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_func.py",
+      "bytes": 11806,
+      "sha256": "bd2268e4ff50f0406ac15d7353e5f322e7d0e9c7faf184e7cb55a5f5f088a4f3",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_ldpc.py",
+      "bytes": 3661,
+      "sha256": "797a3583b261215379548123558f198451007697a8db3837e8335433e06b5307",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_nav.py",
+      "bytes": 47583,
+      "sha256": "c9f52dfa0e866fda4b4edb576bdbbe6597340b7468324931da1c46f53f3fffdd",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_nb_ldpc.py",
+      "bytes": 5986,
+      "sha256": "8a489a5b48ea28e6cf7ddc8b92d0d8f6618802a0dd85f6f6697e29ef75c965dd",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_opt.py",
+      "bytes": 45459,
+      "sha256": "1192fcaa0f16fb54a0641007effa4b6b932a0db510449177e4caa7cb15f9a915",
+      "upstream_status": "modified"
+    },
+    {
+      "path": "python/sdr_plot.py",
+      "bytes": 12522,
+      "sha256": "c490712b6b1273ff515fadb1086a6cd6936c5a5cfd3d95b9185bbc3ecd034c6d",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "python/sdr_rtk.py",
+      "bytes": 19864,
+      "sha256": "2804a40080ca11a50f2117732611cf71914a540c71f7011e142843dfad5cbaac",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/pocket_sdr.h",
+      "bytes": 35380,
+      "sha256": "c5a79545ee190fb950ef75d2f18506eb7e11561eb78b79ead1a6bf191a7a4b80",
+      "upstream_status": "modified"
+    },
+    {
+      "path": "src/sdr_array.c",
+      "bytes": 20957,
+      "sha256": "aa08f0fb632976a5a6e14a8728a349c2325ad40f020d5ef1ceb1a93763e0f30b",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_bcnv3.c",
+      "bytes": 1106,
+      "sha256": "d789796a3e8d8313c8aa3c573a27a0d5679a56f00710551253cd10a6398bf78d",
+      "upstream_status": "added"
+    },
+    {
+      "path": "src/sdr_ch.c",
+      "bytes": 42271,
+      "sha256": "28c3f2732d35479bcf503df184e275c172133ccfd30857194046bf5d4b2da2cc",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_cmn.c",
+      "bytes": 6378,
+      "sha256": "a6bf20037a8a8bc57cd0207ae39967117ba00ccf9704588cafc3719db5e7d532",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_code.c",
+      "bytes": 99436,
+      "sha256": "92e471b34a3ef0c1675cd287e6fdf91ae3d274ca8b6a0c5f2981668ec1c1958f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_code_gal.c",
+      "bytes": 251595,
+      "sha256": "30fb22f881b4b79348272ce6bd0071e3e9b69d58d8c33199cdb61ef555624ccf",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_conf.c",
+      "bytes": 29216,
+      "sha256": "24e82c5f7e22d23bd4bd0b950c5c3253ff63f61e13d822200bbf6598ab30ecc5",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_dev.c",
+      "bytes": 21331,
+      "sha256": "8b96d06527dfdd096324c2f354bcc7e320f182a00c150d2599fd0ac3de72648f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_fec.c",
+      "bytes": 11763,
+      "sha256": "9276c9eac977d7893f2a1a6b78778e5af634863cfc7b3fdd88a51d804247db49",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_func.c",
+      "bytes": 76022,
+      "sha256": "10efc2d3325c55acd6235c76cfa9d92a1f660d6a0268138546d73db94089913d",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_ldpc.c",
+      "bytes": 183235,
+      "sha256": "f25934f2909eec6828b7e8242ae70210a0741130a770078cb4993aeed72cb7ee",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_modern.c",
+      "bytes": 1515,
+      "sha256": "c3fbde2be4de2756b5f925e16b94092d2cdd11ad975e17b0c03f510681585b5b",
+      "upstream_status": "added"
+    },
+    {
+      "path": "src/sdr_nav.c",
+      "bytes": 83407,
+      "sha256": "7f57e0256ff7f3623be71717a65b14f525f7d18e4e97fa4b15321c842f14d0f4",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_nb_ldpc.c",
+      "bytes": 9954,
+      "sha256": "e4b46bca1075a5c45f2b60ca61c50ff05699122ed9d8059c2ece54a7c3e368a2",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_pvt.c",
+      "bytes": 54466,
+      "sha256": "f1e78f52be322429b56eb41f7d421234a3c7d9cc166482a7016f092f9d97abcb",
+      "upstream_status": "modified"
+    },
+    {
+      "path": "src/sdr_rcv.c",
+      "bytes": 79844,
+      "sha256": "6e9b7b746f0055716ab43696704be51862dabe3ae46128f5c5b0654c92741a82",
+      "upstream_status": "modified"
+    },
+    {
+      "path": "src/sdr_sdev.c",
+      "bytes": 32278,
+      "sha256": "f9c629db1b875f78f4b7f78452f762d349a60837c47370d2f11ffbe8760d5528",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_usb.c",
+      "bytes": 6091,
+      "sha256": "7aa477c6934316405f628b1dbc71d402059c427e9109f3467158f26d671af690",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "src/sdr_web.c",
+      "bytes": 80981,
+      "sha256": "e23836d8ada86ae6b574267e012977d6e4db13161444c19c3703f08cc5aa1ea2",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/corr_perf_test.py",
+      "bytes": 868,
+      "sha256": "a20e01d70d37a662a6fe1f75c5181eed4c6cb0049f3c84af8970f1be2d48d6e3",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/fft_perf_test.py",
+      "bytes": 2020,
+      "sha256": "3e8315ff8f86347ad423aefb2c721d6cb817fa5640fe132d7d9755edc8db6760",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/plot_acf_psd.py",
+      "bytes": 6827,
+      "sha256": "101b3eb3a7d6072076ca27219d8cb47c1d439de970e8672aa4ac0402e6163879",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/sdr_code_c_test.py",
+      "bytes": 22989,
+      "sha256": "bc65ef460d9192bb4bccd107ef2911178f078de231d247b2d5ce19f5ddfe8cbf",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/sdr_code_tbl.py",
+      "bytes": 3708,
+      "sha256": "c5a786846b0eaec5480b83b8a98a63faf942247ad6fdb035c046a8dbd2b9876a",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/sdr_code_test.py",
+      "bytes": 13388,
+      "sha256": "fe29d7a029249a2294b54bf439e73779666fac2c569e6b45a636b06dc9e6d920",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/sdr_fec_test.py",
+      "bytes": 3189,
+      "sha256": "75381071694a40626969ac17a856b6a99ce4a7b1dc7e15d6efe56da2228e28f9",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/sdr_func_c_test.py",
+      "bytes": 6466,
+      "sha256": "8416bd0f949bc4be9eaaab17199d1b991d39c082092101403feb4ca6356f72ba",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/sdr_func_test.py",
+      "bytes": 6946,
+      "sha256": "64b1ecb44fbfbc2428927b53bf69740ffe75627f321e64c24826594e67b277e0",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/sdr_ldpc_test.py",
+      "bytes": 9916,
+      "sha256": "546b629057f6ad78fd4c3bbf2f123d3ad9fff1bfbc8f5ca41196f3c211f5c2b0",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/sdr_rtk_test.py",
+      "bytes": 11504,
+      "sha256": "0572f8454994cd0f6d70ec861c2c369f24603260543d95bcd2ff6198e439bc8b",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/test_code_L6L.py",
+      "bytes": 732,
+      "sha256": "c9dd9c0783ca0122e8be6468bcebb51dd025cf33064eef091401babe76350213",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/python/test_sig.py",
+      "bytes": 4626,
+      "sha256": "89b70b2fa05c9b3b257cb67720d6aac4e2447761b723f0174b356c8db76700d8",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/log_serial.sh",
+      "bytes": 295,
+      "sha256": "4643dd2c53d09fe96d0ba2810a64289e0f166cb5b557354013c7166520077613",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_acq_c_test.sh",
+      "bytes": 3145,
+      "sha256": "24de8fb5d56a433e634d2aab4baa20bcac938756e70b3d23fade266fc1de6baf",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_acq_test.sh",
+      "bytes": 3570,
+      "sha256": "39be975e72af41896d63093ef4f2d1bbe58e6c1e3711e9d3c0068930aca7b0ff",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_dump_test.bat",
+      "bytes": 197,
+      "sha256": "6eade470c89c5f811bd42a74ebf17231fe8f64ba33dccc28deffdf9d18152137",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_dump_test.sh",
+      "bytes": 738,
+      "sha256": "e5bd8645ed01fe9b26741233028777d0c6acb0c854997a0d4f90150faeeb1808",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_ALL_test.sh",
+      "bytes": 1282,
+      "sha256": "9cc53ce7fc4f9f93c300024327ca8352cbe1aa54bbf27e27241b6918de25551e",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_B1CB2A_test.sh",
+      "bytes": 354,
+      "sha256": "656fdca8817dfe9283b1b2e5953d08762914dce41ce42b49ab6730312f902911",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_B1CB2B_test.sh",
+      "bytes": 340,
+      "sha256": "02ded7b7859b7250ab0da6a00d248407289b987c8d1b1940ee2d290dddd8e9fb",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_B1IB2I_test.sh",
+      "bytes": 310,
+      "sha256": "3fc2b066050c6faf17b7e9870e7c2319b33aaf3bea4fa44cca4f9bfff93e4661",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_B1IB3I_test.sh",
+      "bytes": 310,
+      "sha256": "be386b18043dfe5aac481f63ad8fad0bc8a4fbea3cd2a14a25fe181adb7743b8",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_E1E5A_test.sh",
+      "bytes": 346,
+      "sha256": "ab565f0062c975b5b4ec32522bf7417d480b5783ed2823d7c58a57448557d907",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_E1E5B_test.sh",
+      "bytes": 347,
+      "sha256": "ce0031623fa1491bd390099dd07f46e70a7e5f37d72007135a44604112ec572c",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_E1E6_test.sh",
+      "bytes": 342,
+      "sha256": "dc80d644d9b7668eceda20e2314c06205081626c4eca4975004ba1f8ef0db8a6",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_G1G2_test.sh",
+      "bytes": 277,
+      "sha256": "517bb008e13a95bc6d48c2ebcb887128f6fbf76b106a56eb7ac95fd6cbb9843a",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_G1OCG2OC_test.sh",
+      "bytes": 312,
+      "sha256": "c02e879cf97bb3ed914764a2487278c7ebf67eb525dca8bc464172c85b0ba60f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_G1OCG3OC_test.sh",
+      "bytes": 333,
+      "sha256": "4b289587df3c1fad5a9303788eaf3e9e08cf8ab952004de5f5bc03fbdc3a1fd1",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_I1I5_test.sh",
+      "bytes": 296,
+      "sha256": "fa8857064e13956a32abb4e67645bf7c242af8661b88565974a2b45f4a14c67f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1G1L2G2_test.sh",
+      "bytes": 693,
+      "sha256": "913f99328e8d5871ea9d012bbc2afb9e6818ebd926670c866eabf4451d964d87",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1G1L5E5b_test.sh",
+      "bytes": 1055,
+      "sha256": "24a141394e2dcca6363f0bda07d149932f5e37f8c211935cc03b7d3ecba522fc",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1L2L5E5b_test.sh",
+      "bytes": 1021,
+      "sha256": "31eb93e065b8e5a76b9002ddb28660fa962ee5c1bc382167e0e44a580acd5e08",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1L2L5L6_test.sh",
+      "bytes": 803,
+      "sha256": "2503977bef114f330cdbe90fd2beabcd7d1f8456adaca69dcbab0c6d7fac17a8",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1L2_test.sh",
+      "bytes": 361,
+      "sha256": "3652073ea4d109659c5de8c5d8bf75c07feceeeb6928299be0384c4d2b5170b1",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1L5_20MHz_test.sh",
+      "bytes": 433,
+      "sha256": "73aa108ed190a8a8583e788f2bc48e8f0b37a0e40cfd17ac6ff25fd54571bf17",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1L5_32MHz_test.sh",
+      "bytes": 433,
+      "sha256": "0f0ee3e276ae5747059879bbfaf58d7b55bf9c86cdbf0670bb9259425133d77f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1L5_40MHz_test.sh",
+      "bytes": 433,
+      "sha256": "c5b2713a7f8039ddf4900e5ec623a114de1b3be3c1d9b97e5c8f875b95a9c134",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1L5_all_test.sh",
+      "bytes": 537,
+      "sha256": "3e91500db1c7203237daf222f904fa1675aa239ff2bff4d9edfce5b083bc96df",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1L5_full_test.sh",
+      "bytes": 780,
+      "sha256": "c8811226227e3e9bd6583c27038cd41364821bb1acc38ebb39884e58dacbda03",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1L5_test.sh",
+      "bytes": 439,
+      "sha256": "95ebde620552bc0410eca1094598b4e074afe3afa10bea5fe32142038d941164",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L1L6_test.sh",
+      "bytes": 317,
+      "sha256": "80fd8e93b785f45465904c79329e3f07067a1be18d74d4d6a969ea20c5f810c7",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_L5E5bB3L6_test.sh",
+      "bytes": 767,
+      "sha256": "e1a509cb7155e6d6142e2a533e371d2104fa77efe3f4648216447a68c35fe15e",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_c_test.sh",
+      "bytes": 3149,
+      "sha256": "3e5dcd2413135236cb39474983cb89b2765b0b6656110f610aa5d989ad2a6ef7",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_prof.sh",
+      "bytes": 351,
+      "sha256": "81f0123ba49dde96a2001f6622e2b83542da7495efa38cabf18f19e0d78165ba",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_stress_test.sh",
+      "bytes": 979,
+      "sha256": "3c5c1ff264ae10cf77304426e4b803095664ba2253803610ae5dd09cf1357186",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/script/pocket_trk_test.sh",
+      "bytes": 3404,
+      "sha256": "cd4bf492cf1e71973df728bbf124fea9e183a381c07ff8c7826e91f18cbe7bda",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/sdr_dev_stub.c",
+      "bytes": 2852,
+      "sha256": "748baef808749ce7e274202514320e692d2ea42ca4fad51de6f951fa58e3b18c",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/sdr_rcv_stub.c",
+      "bytes": 643,
+      "sha256": "6c254acd448e145dca30346c01ace343eb1f699cfb3d67d9c021507b9bb7ce44",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/sdr_sdev_stub.c",
+      "bytes": 2970,
+      "sha256": "86a67fcf90d2c5c41b76482ee1654ca4441c2db8fad4634ab15b6b9124161387",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/sdr_usb_stub.c",
+      "bytes": 2902,
+      "sha256": "6fc4a60ddce072a8dd82d9c8751bd94a3cbef0f0147424a83bc79a1c76f4bc0e",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr.h",
+      "bytes": 1372,
+      "sha256": "3fb3c794e54c58a37e9218f3f8bbff3548da51dae3837825358e7ce610b8cd7f",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_array.c",
+      "bytes": 9580,
+      "sha256": "e33d2045c5cb07058a80d108e83b5fcbc3fbaaa546b3d7cbd20e50d51a3941bb",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_ch.c",
+      "bytes": 11976,
+      "sha256": "79ba109c7d21834360a4d28cbf84767a067afc3520ca3d8778398526ad02facd",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_cmn.c",
+      "bytes": 3880,
+      "sha256": "3ac67cf7ebc59d1a9d74f3d0a0839d03fa9ff8376fde7bbb8d24be55be557f75",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_code.c",
+      "bytes": 6832,
+      "sha256": "248e99aee96b05ee9689f8e337ce055687c6117ac276f568dc695d911630e9f1",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_code_gal.c",
+      "bytes": 2844,
+      "sha256": "d0edd9a14a8ed6b07f62b7ae70977fdf07d8ec3474ad46359693ebb140c3c6ae",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_conf.c",
+      "bytes": 6663,
+      "sha256": "3f8a8db2d23786366d3b92d3cbdbd314d4be2f2cfad986dec6108ac7c6c3f039",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_dev.c",
+      "bytes": 6539,
+      "sha256": "3c96dd040903ae49dba8fb803f7edbef9b2f79ec2c2c5b8b947ea3ba39ae49d9",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_fec.c",
+      "bytes": 8280,
+      "sha256": "23ee4d21d5de34be81e45a778a949dc76976f11994f70b24e1bcaddab6fb3c49",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_func.c",
+      "bytes": 30508,
+      "sha256": "7fce97f0f3ce7bf1006b16654c28f1c1e148bd1f73fd28217d90e65ffc8f11f0",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_ldpc.c",
+      "bytes": 6186,
+      "sha256": "fe99e34c76ea1e2c8ba4c71830437467383a9a32959ac42adc24f63153448ad1",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_nav.c",
+      "bytes": 9211,
+      "sha256": "681b34230d2165ad947f2a60b552464ea97bce6494c177b197921b433369d845",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_nb_ldpc.c",
+      "bytes": 3820,
+      "sha256": "b20f4a7ddcfc1b3f2619918b657e3e0317d46b9a7aa80b2e14e29d9745acedb6",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_perf.c",
+      "bytes": 18651,
+      "sha256": "4fe8e4311e60c6ea592e03b83984e75e129d0069e9afbea17b9399c4866e42c3",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_pvt.c",
+      "bytes": 12625,
+      "sha256": "211d58a3cd3ca5da745d2b1f84c5d6b351795d07bf33a9b6ab161208f40df6aa",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_rcv.c",
+      "bytes": 21573,
+      "sha256": "81bd1a3b7714561568102d56bc0c312976fce40fb4af0a2f65744aed51092b29",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_sdev.c",
+      "bytes": 5921,
+      "sha256": "ec4887f831221bd4a3839406903c343c47ac4a9c76d09f9dd0b887b537e75092",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_usb.c",
+      "bytes": 5286,
+      "sha256": "c8774682c7b147acd65ce1d95ccedf3617d2b7d11fc024d2bb43af67d2d4f51e",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/src/test_sdr_web.c",
+      "bytes": 19110,
+      "sha256": "0d0f44cf0a2e86160b08e7d213f6398ee49be8bafc3a116d57631678fbd63dda",
+      "upstream_status": "unchanged"
+    },
+    {
+      "path": "test/test_bcnv3.c",
+      "bytes": 4808,
+      "sha256": "fca009a864a8137a3f86ef5f258397e9fbd3a39da4fc6d1042ed3177c413179d",
+      "upstream_status": "added"
+    },
+    {
+      "path": "test/test_modern.c",
+      "bytes": 5496,
+      "sha256": "d19d5fd32d05a673513e4e5e1107997f2faf6a5b774de7395890a31cc5957207",
+      "upstream_status": "added"
+    },
+    {
+      "path": "test/test_signal.c",
+      "bytes": 3654,
+      "sha256": "16453604c7efa939f53c2afbd379c1d2605783ad5e5e15404bc29f77bcdcefca",
+      "upstream_status": "added"
+    },
+    {
+      "path": "test/utest/makefile",
+      "bytes": 6576,
+      "sha256": "1096b9f2c80ff8f0d1550bd448402caa85bfcb8c53d0e8a0ea1d31dec550d762",
+      "upstream_status": "unchanged"
+    }
+  ]
+}

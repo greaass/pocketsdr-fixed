@@ -1,22 +1,22 @@
 # pocketsdr-fixed
 
-基于 [PocketSDR](https://github.com/tomojitakasu/PocketSDR) 0.21 的修改版接收机源码仓库，用于记录本地修复及 GNSS 相关测距实验所用的软件版本。
+A modified version of [PocketSDR](https://github.com/tomojitakasu/PocketSDR) 0.21, with navigation decoding and positioning fixes for GPS L1C, L2C and L5, and BeiDou B1C, B2a and B2b.
 
-## 当前状态
+The changes add modern ephemeris decoding, keep navigation messages tied to their signal source, and apply the corresponding frequency and code-bias corrections during positioning.
 
-仓库已初始化，修改后的源码尚未上传。后续发布将包含接收机源码、必要的第三方源码、构建文件和配置示例，并记录相对上游的修改及验证范围。
+## Files
 
-这里只分发源码和必要文件。动态库、可执行文件、运行环境、信号采样数据、实验输出和本机设置不进入仓库。源码上传后将补充依赖和构建说明；当前仓库还不能独立编译或复现实验。
+- `src/` and `python/`: receiver code and Python tools.
+- `lib/`: RTKLIB, PocketFFT and library makefiles.
+- `app/`, `html/` and `conf/`: command-line tools, web interface and configuration examples.
+- `test/`: receiver tests, including the navigation and positioning regression tests.
 
-## 来源与许可证
+## Build
 
-- 原项目及作者：PocketSDR，T. Takasu。
-- 原项目地址：https://github.com/tomojitakasu/PocketSDR
-- 原许可证：[BSD 2-clause](LICENSE.txt)。修改及再分发保留原版权、许可条件和免责声明。
-- 上游基线及源码整理约定：[UPSTREAM.md](UPSTREAM.md)。
+See [build instructions](docs/build.md) for dependencies and commands. The Linux build uses GCC, GNU Make and libusb. The Python tools use NumPy, SciPy, Matplotlib and Tkinter.
 
-本仓库为独立修改版，不代表上游作者维护或认可具体修改。
+Source hashes and the upstream commit are recorded in [UPSTREAM.md](UPSTREAM.md). The [change summary](docs/changes.md) lists the main fixes.
 
-## 后续上传
+## License
 
-按 [源码上传说明](docs/upload.md) 整理文件。首次源码提交将记录完整文件清单、源码摘要、构建依赖和验证记录；论文引用使用实际发布的提交或标签。
+PocketSDR and RTKLIB are by T. Takasu and use the BSD 2-clause license. See [LICENSE.txt](LICENSE.txt) and [RTKLIB's license](lib/RTKLIB/readme.txt). PocketFFT's license is in [lib/pocketfft/LICENSE.md](lib/pocketfft/LICENSE.md). Original copyright notices are retained.

@@ -1,35 +1,11 @@
-# 源码上传说明
+# Updating the source snapshot
 
-## 纳入范围
+1. Copy the receiver sources, configuration examples and build files from the selected version.
+2. Retain the original copyright notices and dependency licenses.
+3. Update the upstream commit, patch and source hashes.
+4. Run the navigation regression tests and record their results.
+5. Review the staged file list, then commit and push.
 
-- PocketSDR 接收机的 C/C++ 源码及头文件。
-- 配套 Python 源码。
-- 编译需要的 Makefile 和构建配置。
-- 修改涉及的 RTKLIB 等第三方源码及各自许可证。
-- 必要的测试源码、配置示例、依赖说明和修改记录。
+The repository contains source code and supporting text files. Compiled libraries, executables, local settings, signal recordings and generated results are handled through `.gitignore`.
 
-保留第三方原版权和注释。已有上游文件不为满足新代码的行数或注释规范而拆分改写。
-
-## 排除范围
-
-- 动态库、静态库、可执行文件、目标文件和旧二进制备份。
-- Python、Conda 等运行环境及依赖缓存。
-- IQ 采样、导航实验输入、跟踪日志、实验输出和构建目录。
-- 本机路径配置、账号信息、令牌及环境变量文件。
-- 论文稿件和与接收机源码无关的工作目录。
-
-`.gitignore` 用于减少误加入文件；每次提交仍须检查实际暂存清单。复制源码时保留 `lib/RTKLIB/src` 等必要目录，不能因为目录名为 `lib` 而全部删除。
-
-## 首次源码提交
-
-1. 从确认的 0.21-fixed 源码目录提取文件，并记录完整基线提交号。
-2. 将本机设置改为独立示例配置，给出依赖和构建说明。
-3. 记录文件摘要，核对与论文实验版本的关系。
-4. 检查暂存清单中没有二进制、信号数据和凭据。
-5. 提交源码及修改说明，完成验证后设置发布标签。
-
-## 仓库地址
-
-https://github.com/greaass/pocketsdr-fixed
-
-仓库初始为私有；后续公开时使用同一地址。
+Repository: https://github.com/greaass/pocketsdr-fixed
