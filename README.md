@@ -15,8 +15,6 @@ The changes add modern ephemeris decoding, keep navigation messages tied to thei
 
 See [build instructions](docs/build.md) for dependencies and commands. The Linux build uses GCC, GNU Make and libusb. The Python tools use NumPy, SciPy, Matplotlib and Tkinter.
 
-Source hashes and the upstream commit are recorded in [UPSTREAM.md](UPSTREAM.md). The [change summary](docs/changes.md) lists the main fixes.
-
 ## License
 
 PocketSDR and RTKLIB are by T. Takasu and use the BSD 2-clause license. See [LICENSE.txt](LICENSE.txt) and [RTKLIB's license](lib/RTKLIB/readme.txt). PocketFFT's license is in [lib/pocketfft/LICENSE.md](lib/pocketfft/LICENSE.md). Original copyright notices are retained.

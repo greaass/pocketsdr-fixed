@@ -2,7 +2,7 @@
 
 1. Copy the receiver sources, configuration examples and build files from the selected version.
 2. Retain the original copyright notices and dependency licenses.
-3. Update the upstream commit, patch and source hashes.
+3. Update the patch and source manifest.
 4. Run the navigation regression tests and record their results.
 5. Review the staged file list, then commit and push.
 
